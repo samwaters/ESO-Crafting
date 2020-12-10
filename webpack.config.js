@@ -7,12 +7,10 @@ const BUILD_DIR = path.join(__dirname, 'dist')
 
 const config = {
   devServer: {
+    compress: true,
     contentBase: './dist',
     hot: true,
-    filename: 'app.js',
-    lazy: true,
     port: 9002,
-    publicPath: '/'
   },
   entry: {
     app: APP_DIR + '/index.tsx',

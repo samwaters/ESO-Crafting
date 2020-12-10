@@ -1,6 +1,6 @@
+import { push } from 'connected-react-router'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { push } from 'connected-react-router'
 import { AppBar, IconButton, Hidden, Toolbar, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { Info, Menu, SportsEsports } from '@material-ui/icons'
@@ -35,9 +35,11 @@ const header = (props: HeaderProps) => {
             <Menu />
           </IconButton>
         </Hidden>
-        <IconButton aria-label='menu' edge='start' color='inherit' onClick={() => props.navigate('/')}>
-          <SportsEsports />
-        </IconButton>
+        <Hidden smDown implementation='css'>
+          <IconButton aria-label='menu' edge='start' color='inherit' onClick={() => props.navigate('/')}>
+            <SportsEsports />
+          </IconButton>
+        </Hidden>
         <Typography className={classes.title} variant="h6">
           ESO Crafting
         </Typography>
@@ -49,9 +51,7 @@ const header = (props: HeaderProps) => {
         </IconButton>
       </Toolbar>
     </AppBar>
-    <NavigationDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} variant='temporary'>
-      <p>Hello Two</p>
-    </NavigationDrawer>
+    <NavigationDrawer open={drawerOpen} onClick={(item: string) => props.navigate(`/${item}`)} onClose={() => setDrawerOpen(false)} variant='temporary' />
   </div>
 }
 
