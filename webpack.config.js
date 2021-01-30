@@ -18,7 +18,8 @@ const config = {
       '@material-ui/core', '@redux-saga/core', 'connected-react-router', 'react', 'react-dom', 'react-redux', 'react-router', 'redux'
     ]
   },
-  mode: process.env.NODE_ENV || 'production',
+  // mode: process.env.NODE_ENV || 'production',
+  mode: 'development',
   module: {
     rules: [
       {
